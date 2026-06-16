@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSMOS | Space Explorer Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#today" aria-label="COSMOS dashboard home">
+      <span class="brand-icon">🚀</span>
+      <span>
+        <strong>COSMOS</strong>
+        <small>Space Dashboard</small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-link active" data-view="today" type="button"><span>🖼️</span>Today in Space</button>
+      <button class="nav-link" data-view="launches" type="button"><span>🚀</span>Launches</button>
+      <button class="nav-link" data-view="planets" type="button"><span>🌐</span>Planets</button>
+    </nav>
+
+    <div class="profile">
+      <span class="avatar">👤</span>
+      <span>
+        <strong>Space Explorer</strong>
+        <small>explorer@cosmos.space</small>
+      </span>
+      <span class="dots">⋮</span>
+    </div>
+  </aside>
+
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>Space Explorer <span>Dashboard</span></h1>
+        <p>Real-time space data from NASA & SpaceDevs</p>
+      </div>
+      <div class="status">
+        <span><i class="live-dot"></i>Live Data</span>
+        <span>🌐 <strong id="planet-count">8</strong> Planets</span>
+        <span>🚀 <strong id="launch-count">10</strong> Launches</span>
+      </div>
+    </header>
+
+    <section class="view active" id="today-view">
+      <div class="section-head today-head">
+        <div>
+          <h2>Today in Space</h2>
+          <p>Astronomy Picture of the Day</p>
+        </div>
+        <form class="date-tools" id="apod-form">
+          <input type="date" id="apod-date" aria-label="Choose APOD date">
+          <button class="primary" type="submit">🔍 Load</button>
+          <button class="ghost" id="today-button" type="button">Today</button>
+        </form>
+      </div>
+
+      <div class="today-grid">
+        <article class="media-panel" id="apod-media">
+          <div class="loader">Loading cosmic image...</div>
+        </article>
+        <aside class="stack">
+          <article class="info-card" id="apod-summary">
+            <h3>Loading...</h3>
+            <p class="muted">Preparing today's space story.</p>
+          </article>
+          <article class="info-card detail-list">
+            <h3>ℹ️ Image Details</h3>
+            <dl>
+              <div><dt>Date</dt><dd id="apod-detail-date">Loading...</dd></div>
+              <div><dt>Media Type</dt><dd id="apod-detail-type">Image</dd></div>
+              <div><dt>Source</dt><dd>NASA APOD</dd></div>
+            </dl>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="view" id="launches-view">
+      <div class="section-head">
+        <h2>Upcoming Launches</h2>
+        <p>Real-time tracking of the next missions to space</p>
+      </div>
+
+      <article class="featured-launch" id="featured-launch">
+        <div class="loader">Loading featured launch...</div>
+      </article>
+
+      <h3 class="subhead">All Upcoming Launches</h3>
+      <div class="launch-grid" id="launch-grid"></div>
+    </section>
+
+    <section class="view" id="planets-view">
+      <div class="section-head">
+        <h2>Explore Our Solar System</h2>
+        <p>Discover the planets, moons, and celestial bodies in our cosmic neighborhood</p>
+      </div>
+
+      <div class="planet-tabs" id="planet-tabs"></div>
+
+      <div class="planet-layout">
+        <article class="planet-main" id="planet-main"></article>
+        <aside class="planet-side">
+          <article class="info-card detail-list" id="discovery-card"></article>
+          <article class="info-card" id="quick-facts"></article>
+          <article class="info-card detail-list" id="orbit-card"></article>
+          <a class="primary learn-link" id="learn-link" target="_blank" rel="noreferrer">📖 Learn More</a>
+        </aside>
+      </div>
+
+      <section class="comparison-section">
+        <h2>Planet Comparison</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Planet</th>
+                <th>Distance (AU)</th>
+                <th>Diameter (km)</th>
+                <th>Mass (Earth=1)</th>
+                <th>Orbital Period</th>
+                <th>Moons</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody id="planet-table"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
