@@ -39,5 +39,9 @@ Serve the project through a local web server so API requests and assets work con
 ## Portfolio Focus
 COSMOS demonstrates API integration, dynamic rendering, dashboard information architecture, responsive layouts, and data visualization-oriented UI.
 
+## Academic Context
+
+This project was developed as part of a front-end development assignment at Route Academy. It was created for educational purposes to practice and apply frontend development concepts in a project-based setting.
+
 ## Author
 Ahmed Khattab — Frontend Developer
